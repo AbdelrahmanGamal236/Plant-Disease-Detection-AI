@@ -33,20 +33,13 @@ cd Plant-Disease-Detection-AI
 ```bash
 pip install -r requirements.txt
 ```
-
-3. Download the pre-trained model and place it in the project root:
-
-```bash
-# Model file: model.pth (EfficientNet-B0 trained on 15 disease classes)
-```
-
-4. Run the application:
+3. Run the application:
 
 ```bash
 python app.py
 ```
 
-5. Open your web browser and navigate to `http://localhost:5000` to access Plant Disease Detection AI.
+4. Open your web browser and navigate to `http://localhost:5000` to access Plant Disease Detection AI.
 
 ## Usage
 
