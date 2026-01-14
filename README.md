@@ -16,7 +16,7 @@ The system can detect 15 different plant diseases across 3 major crop types and 
 * **Real-time Predictions**: Instant diagnosis with confidence scores and top-3 disease predictions.
 * **User-Friendly Interface**: Clean Bootstrap interface designed for ease of use by agricultural professionals.
 * **Production Ready**: Error handling, secure file uploads, and CPU/GPU compatibility.
-
+![Page 1](plant.jpg)
 ## Installation
 
 To run Plant Disease Detection AI locally, follow these steps:
