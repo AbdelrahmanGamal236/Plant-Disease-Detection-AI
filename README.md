@@ -1,195 +1,74 @@
-# 🌱 Plant Disease Detection AI
+# Plant Disease Detection AI
 
-**Flask Web Application with PyTorch EfficientNet-B0 for Plant Disease Diagnosis**
+Plant Disease Detection AI is a Flask web application with PyTorch EfficientNet-B0 model for advanced plant disease diagnosis leveraging AI and machine learning techniques.
 
-[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
-[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-orange.svg)](https://pytorch.org/)
-[![Flask](https://img.shields.io/badge/Flask-2.x-green.svg)](https://flask.palletsprojects.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+## Overview
 
-## 🎯 Overview
+Plant Disease Detection AI aims to revolutionize agricultural disease management by integrating cutting-edge technologies in AI, machine learning, and computer vision. This platform provides tools for automated analysis, prediction, and decision support for plant disease diagnosis, particularly focusing on Tomato, Potato, and Pepper crops.
 
-Production-ready **Flask web application** deploying a **PyTorch EfficientNet-B0** model trained to detect **15 plant diseases** across Tomato, Potato, and Pepper crops. Users upload leaf images to get instant diagnosis with confidence scores and top-3 predictions. Features secure file upload, image preprocessing, and responsive UI.
+The system can detect 15 different plant diseases across 3 major crop types and provides confidence scores with top-3 predictions for each uploaded leaf image.
 
-**Supported Classes (15):**
-- **Tomato**: Bacterial spot, Early blight, Late blight, Leaf Mold, Septoria, Spider mites, Target Spot, Yellow Leaf Curl Virus, Mosaic Virus, Healthy
-- **Potato**: Early blight, Late blight, Healthy
-- **Pepper (bell)**: Bacterial spot, Healthy
+## Features
 
-## ✨ Key Features
+* **AI-Powered Diagnosis**: Utilizes EfficientNet-B0 deep learning model for accurate disease detection.
+* **Multi-Crop Support**: Supports analysis of Tomato, Potato, and Pepper plant diseases.
+* **Image Analysis**: Advanced image processing and preprocessing for medical-grade accuracy.
+* **Real-time Predictions**: Instant diagnosis with confidence scores and top-3 disease predictions.
+* **User-Friendly Interface**: Clean Bootstrap interface designed for ease of use by agricultural professionals.
+* **Production Ready**: Error handling, secure file uploads, and CPU/GPU compatibility.
 
-- **🔍 EfficientNet-B0 Model**: Pre-trained, fine-tuned for 15 plant disease classes
-- **📏 Image Upload**: Secure handling (PNG/JPG/JPEG/GIF/JFIF) with validation
-- **⚡ Real-time Prediction**: Top-1 + Top-3 results with confidence percentages
-- **🎯 Responsive UI**: Clean Bootstrap interface with result visualization
-- **💡 Production Ready**: Error handling, secure filenames, CPU/GPU compatible
-- **📁 Auto-cleanup**: Uploads stored in `static/uploads/`
+## Installation
 
-## 🔨 Tech Stack
+To run Plant Disease Detection AI locally, follow these steps:
 
-| Category | Technologies |
-|----------|----|
-| **Backend** | Flask, Werkzeug, PyTorch, torchvision |
-| **ML Model** | EfficientNet-B0 (224x224), Softmax probabilities |
-| **Image Processing** | PIL, torchvision.transforms (normalize) |
-| **Frontend** | Jinja2, Bootstrap, HTML/CSS |
-| **Deployment** | Flask dev server (localhost:5000) |
+1. Clone the repository:
 
-## 🚀 Quick Start
-
-### 1️⃣ Clone & Install Dependencies
 ```bash
 git clone https://github.com/AbdelrahmanGamal236/Plant-Disease-Detection-AI.git
 cd Plant-Disease-Detection-AI
-pip install torch torchvision torchaudio flask pillow numpy werkzeug
 ```
 
-### 2🐨 Download Pre-trained Model
-Download the trained EfficientNet-B0 model and place it in the project root:
+2. Install dependencies:
+
 ```bash
-# Model file: model.pth (should be ~50-100MB)
-# Ensure the model path in app.py points to this file
+pip install -r requirements.txt
 ```
 
-### 3🍟 Run the Application
+3. Download the pre-trained model and place it in the project root:
+
+```bash
+# Model file: model.pth (EfficientNet-B0 trained on 15 disease classes)
+```
+
+4. Run the application:
+
 ```bash
 python app.py
 ```
-The application will start at **`http://localhost:5000`**
 
-### 4🧹 Upload & Diagnose
-1. Navigate to the web interface
-2. Upload a leaf image (PNG/JPG/JPEG/GIF/JFIF)
-3. View instant predictions with confidence scores
-4. Get top-3 disease predictions ranked by probability
+5. Open your web browser and navigate to `http://localhost:5000` to access Plant Disease Detection AI.
 
-## 📄 Project Structure
-```
-Plant-Disease-Detection-AI/
-├── app.py                    # Main Flask application
-├── model.pth               # Trained EfficientNet-B0 model
-├── templates/
-│   ├── index.html            # Upload interface
-│   └── result.html           # Results display
-├── static/
-│   ├── css/
-│   │   └── style.css          # Custom styling
-│   ├── js/
-│   │   └── script.js         # Frontend logic
-│   └── uploads/             # Temporary image storage
-├── requirements.txt        # Python dependencies
-└── README.md               # This file
-```
+## Usage
 
-## 📎 Model Details
+* **Upload Image**: Upload a clear leaf image (PNG, JPG, JPEG, GIF, or JFIF format) for analysis.
+* **Run Analysis**: The platform automatically analyzes the image using the AI model.
+* **View Results**: Review disease diagnosis with confidence percentages and top-3 predictions.
+* **Understand Recommendations**: Get insights into detected plant disease and severity levels.
 
-**Architecture**: EfficientNet-B0
-- **Input Size**: 224x224 pixels
-- **Classes**: 15 plant disease categories
-- **Output**: Probability distribution via Softmax
-- **Training Data**: PlantVillage Dataset + custom annotations
+## Contributing
 
-**Preprocessing Pipeline**:
-```python
-Transforms(
-    Resize(224),
-    ToTensor(),
-    Normalize(mean=[0.485, 0.456, 0.406],
-              std=[0.229, 0.224, 0.225])
-)
-```
+Contributions are welcome! If you'd like to contribute to Plant Disease Detection AI, please follow these steps:
 
-## 🧐 How to Use
+1. Fork the repository and create your branch from `main`.
+2. Make your changes and ensure the code follows the project's coding standards.
+3. Test your changes thoroughly with various plant images.
+4. Submit a pull request detailing your changes and their purpose.
 
-### Option 1: Web Interface
-1. Run `python app.py`
-2. Open browser to `http://localhost:5000`
-3. Click "Choose Image" to upload a leaf photo
-4. View results: disease name + confidence score
+## Contact
 
-### Option 2: API (Future)
-```bash
-curl -X POST -F "image=@leaf.jpg" http://localhost:5000/api/predict
-```
+For inquiries about Plant Disease Detection AI and its models, please contact:
 
-## 🔆 Troubleshooting
-
-| Issue | Solution |
-|-------|----------|
-| **Model not found** | Check model.pth exists in project root |
-| **Port 5000 already in use** | `python app.py --port 5001` or kill existing process |
-| **Image format not supported** | Use PNG, JPG, JPEG, GIF, or JFIF |
-| **Out of Memory error** | Reduce batch size or use CPU mode |
-| **Slow predictions** | Move model to GPU if available |
-
-## 📚 Dataset Information
-
-- **Source**: PlantVillage Dataset
-- **Total Images**: 54,305+ leaf images
-- **Classes**: 15 (3 crops x 5 diseases)
-- **Train/Val Split**: 80/20
-- **Augmentation**: Rotation, Flip, ColorJitter
-
-## 🕒 Performance Metrics
-
-- **Inference Time**: ~200-300ms per image (CPU), ~50-100ms (GPU)
-- **Model Accuracy**: ~95% on validation set
-- **Supported Batch Size**: 1-32 images
-- **Memory Usage**: ~100MB (CPU), ~500MB (GPU)
-
-## 📝 License
-
-MIT License - Feel free to use this project for educational and commercial purposes.
-See [LICENSE](LICENSE) for details.
-
-## 📅 Contributing
-
-Contributions are welcome! Please:
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📗 Citation
-
-If you use this project in your research, please cite:
-```bibtex
-@software{plant_disease_detection_2025,
-  title={Plant Disease Detection AI},
-  author={Abdelrahman Gamal},
-  year={2025},
-  url={https://github.com/AbdelrahmanGamal236/Plant-Disease-Detection-AI}
-}
-```
-
-## 📃 Acknowledgments
-
-- **PlantVillage Dataset** for training data
-- **PyTorch & torchvision** teams for excellent ML frameworks
-- **Flask** for lightweight web framework
-- Community contributions and feedback
-
-## 📈 Project Roadmap
-
-- [ ] REST API endpoint for predictions
-- [ ] Mobile app integration
-- [ ] Multi-image batch processing
-- [ ] Model quantization for edge deployment
-- [ ] Web interface improvements
-- [ ] Docker containerization
-- [ ] Cloud deployment (AWS/GCP/Azure)
-- [ ] Real-time camera stream support
-
-## 📀 Contact
-
-Have questions about the project or want to collaborate?
-
-- **Email**: [Abdelrahman.Gamal.Ai@gmail.com](mailto:Abdelrahman.Gamal.Ai@gmail.com)
-- **LinkedIn**: [linkedin.com/in/abdelrahman-gamal236](https://www.linkedin.com/in/abdelrahman-gamal236/)
-- **WhatsApp**: +201029744194
-- **GitHub**: [@AbdelrahmanGamal236](https://github.com/AbdelrahmanGamal236)
-
----
-
-⭐ **Star if helpful!** 👨‍💻 Built by **Abdelrahman Gamal** | Last Updated: January 2025
+* **Email**: [Abdelrahman.Gamal.Ai@gmail.com](mailto:Abdelrahman.Gamal.Ai@gmail.com)
+* **LinkedIn**: [linkedin.com/in/abdelrahman-gamal236](https://www.linkedin.com/in/abdelrahman-gamal236/)
+* **WhatsApp**: +201029744194
+* **GitHub**: [@AbdelrahmanGamal236](https://github.com/AbdelrahmanGamal236)
